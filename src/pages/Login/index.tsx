@@ -1,10 +1,11 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {Image, Text, View} from 'react-native';
+import {Image, View, Text} from 'react-native';
+import {Container, Content, Title} from './styles';
 
 const Login: React.FC = () => {
   return (
-    <View style={{flex: 1}}>
+    <Container>
       <LinearGradient
         colors={['#530407', '#880c12', '#3a1416']}
         style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
@@ -15,9 +16,12 @@ const Login: React.FC = () => {
       </LinearGradient>
       <LinearGradient
         colors={['#3a1416', '#130a0b', '#080303']}
-        style={{flex: 5}}
-      />
-    </View>
+        style={{flex: 5}}>
+        <Content>
+          <Title>assista a qualquer filme do seu telefone na TV</Title>
+        </Content>
+      </LinearGradient>
+    </Container>
   );
 };
 
