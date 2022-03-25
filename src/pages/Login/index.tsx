@@ -1,6 +1,7 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {Image, View, Text} from 'react-native';
+import {Image, View, Text, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   BtnLogin,
   BtnStarted,
@@ -9,8 +10,11 @@ import {
   Subtitle,
   Title,
 } from './styles';
+import {theme} from '../../styles/theme';
 
 const Login: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <LinearGradient
@@ -36,47 +40,48 @@ const Login: React.FC = () => {
               elevation: 10,
             }}>
             <BtnStarted activeOpacity={0.7}>
-              <Text
-                style={{
-                  color: '#cccaca',
-                  fontSize: 18,
-                  fontFamily: 'Manrope-Regular',
-                }}>
-                Começar
-              </Text>
+              <Text style={styles.textBtn}>Começar</Text>
             </BtnStarted>
           </LinearGradient>
-          <BtnLogin activeOpacity={0.7}>
-            <Text
-              style={{
-                color: '#cccaca',
-                fontSize: 18,
-                fontFamily: 'Manrope-Regular',
-              }}>
-              Login
-            </Text>
+          <BtnLogin
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.textBtn}>Login</Text>
           </BtnLogin>
-          <View
-            style={{
-              width: '100%',
-              marginVertical: 60,
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-            }}>
-            <Text style={{fontFamily: 'Manrope-Regular'}}>Privacy</Text>
-            <View
-              style={{height: 19, borderWidth: 0.5, borderColor: '#ffffff'}}
-            />
-            <Text style={{fontFamily: 'Manrope-Regular'}}>Help</Text>
-            <View
-              style={{height: 19, borderWidth: 0.5, borderColor: '#ffffff'}}
-            />
-            <Text style={{fontFamily: 'Manrope-Regular'}}>FAQs</Text>
+          <View style={styles.containerFooter}>
+            <Text style={styles.textFooter}>Privacy</Text>
+            <View style={styles.bar} />
+            <Text style={styles.textFooter}>Help</Text>
+            <View style={styles.bar} />
+            <Text style={styles.textFooter}>FAQs</Text>
           </View>
         </Content>
       </LinearGradient>
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  textBtn: {
+    fontFamily: theme.fonts.manrope,
+    fontSize: 18,
+    color: theme.colors.gray,
+  },
+  containerFooter: {
+    width: '100%',
+    marginVertical: 60,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  textFooter: {
+    color: theme.colors.blue,
+    fontFamily: 'Manrope-Regular',
+  },
+  bar: {
+    height: 19,
+    borderWidth: 0.5,
+    borderColor: theme.colors.white,
+  },
+});
 
 export default Login;
