@@ -1,7 +1,14 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {Image, View, Text} from 'react-native';
-import {Container, Content, Title} from './styles';
+import {
+  BtnLogin,
+  BtnStarted,
+  Container,
+  Content,
+  Subtitle,
+  Title,
+} from './styles';
 
 const Login: React.FC = () => {
   return (
@@ -19,6 +26,22 @@ const Login: React.FC = () => {
         style={{flex: 5}}>
         <Content>
           <Title>assista a qualquer filme do seu telefone na TV</Title>
+          <Subtitle>assista todos os seus filmes na TV</Subtitle>
+          <LinearGradient
+            colors={['#aa040c', '#aa040c', '#a04e4e']}
+            style={{
+              width: '100%',
+              height: 46,
+              borderRadius: 23,
+              elevation: 10,
+            }}>
+            <BtnStarted>
+              <Text style={{color: '#cccaca', fontSize: 18}}>Começar</Text>
+            </BtnStarted>
+          </LinearGradient>
+          {/* <BtnLogin>
+            <Text>Login</Text>
+          </BtnLogin> */}
         </Content>
       </LinearGradient>
     </Container>
