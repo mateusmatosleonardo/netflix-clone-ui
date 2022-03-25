@@ -25,8 +25,8 @@ const Login: React.FC = () => {
         colors={['#3a1416', '#130a0b', '#080303']}
         style={{flex: 5}}>
         <Content>
-          <Title>assista a qualquer filme do seu telefone na TV</Title>
-          <Subtitle>assista todos os seus filmes na TV</Subtitle>
+          <Title>Watch any films from your phone on TV</Title>
+          <Subtitle>Watch your all films on TV</Subtitle>
           <LinearGradient
             colors={['#aa040c', '#aa040c', '#a04e4e']}
             style={{
@@ -35,13 +35,44 @@ const Login: React.FC = () => {
               borderRadius: 23,
               elevation: 10,
             }}>
-            <BtnStarted>
-              <Text style={{color: '#cccaca', fontSize: 18}}>Começar</Text>
+            <BtnStarted activeOpacity={0.7}>
+              <Text
+                style={{
+                  color: '#cccaca',
+                  fontSize: 18,
+                  fontFamily: 'Manrope-Regular',
+                }}>
+                Começar
+              </Text>
             </BtnStarted>
           </LinearGradient>
-          {/* <BtnLogin>
-            <Text>Login</Text>
-          </BtnLogin> */}
+          <BtnLogin activeOpacity={0.7}>
+            <Text
+              style={{
+                color: '#cccaca',
+                fontSize: 18,
+                fontFamily: 'Manrope-Regular',
+              }}>
+              Login
+            </Text>
+          </BtnLogin>
+          <View
+            style={{
+              width: '100%',
+              marginVertical: 60,
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+            }}>
+            <Text style={{fontFamily: 'Manrope-Regular'}}>Privacy</Text>
+            <View
+              style={{height: 19, borderWidth: 0.5, borderColor: '#ffffff'}}
+            />
+            <Text style={{fontFamily: 'Manrope-Regular'}}>Help</Text>
+            <View
+              style={{height: 19, borderWidth: 0.5, borderColor: '#ffffff'}}
+            />
+            <Text style={{fontFamily: 'Manrope-Regular'}}>FAQs</Text>
+          </View>
         </Content>
       </LinearGradient>
     </Container>
