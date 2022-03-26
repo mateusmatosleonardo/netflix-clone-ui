@@ -6,12 +6,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ScrollView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import TitleSection from '../../components/TitleSection';
 import {
   Banner,
-  Container,
   ContainerSlider,
   Header,
   Menu,
@@ -20,8 +20,8 @@ import {
 } from './styles';
 import Star from '../../assets/icons/icon-stars.png';
 import Ticket from '../../assets/icons/ticket.png';
+import NewMovies from '../../assets/icons/icon-new-movies.png';
 import CardGenres from '../../components/CardGenres';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const Home: React.FC = () => {
   const data = [
@@ -111,6 +111,12 @@ const Home: React.FC = () => {
           renderItem={({item}) => (
             <CardGenres icon={item.icon} title={item.title} />
           )}
+        />
+        <TitleSection
+          styleContainer={{paddingTop: 15, paddingBottom: 10}}
+          icon={NewMovies}
+          styleIcon={{width: 19, height: 19}}
+          title="New Movies"
         />
       </ScrollView>
     </LinearGradient>
