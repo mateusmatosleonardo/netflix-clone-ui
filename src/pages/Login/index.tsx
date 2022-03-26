@@ -45,7 +45,7 @@ const Login: React.FC = () => {
           </LinearGradient>
           <BtnLogin
             activeOpacity={0.7}
-            onPress={() => navigation.navigate('Home')}>
+            onPress={() => navigation.navigate('Tabs')}>
             <Text style={styles.textBtn}>Login</Text>
           </BtnLogin>
           <View style={styles.containerFooter}>

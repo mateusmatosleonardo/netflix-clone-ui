@@ -1,28 +1,68 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import {
-  AlignTopView,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import TitleSection from '../../components/TitleSection';
+import {
   Banner,
   Container,
   ContainerSlider,
-  ContainerTopView,
   Header,
   Menu,
   Notifications,
   NumberNotifications,
-  Seeall,
-  Stars,
-  TextTopView,
-  TitleTopView,
 } from './styles';
+import Star from '../../assets/icons/icon-stars.png';
+import Ticket from '../../assets/icons/ticket.png';
+import CardGenres from '../../components/CardGenres';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const Home: React.FC = () => {
+  const data = [
+    {
+      icon: require('../../assets/iconsGenres/Action.png'),
+      title: 'Action',
+    },
+    {
+      icon: require('../../assets/iconsGenres/Comedy.png'),
+      title: 'Comedy',
+    },
+    {
+      icon: require('../../assets/iconsGenres/Romance.png'),
+      title: 'Romance',
+    },
+    {
+      icon: require('../../assets/iconsGenres/Sad.png'),
+      title: 'Sad',
+    },
+    {
+      icon: require('../../assets/iconsGenres/Horror.png'),
+      title: 'Horror',
+    },
+    {
+      icon: require('../../assets/iconsGenres/Sports.png'),
+      title: 'Sports',
+    },
+  ];
+
   return (
-    <Container>
-      <LinearGradient
-        colors={['#1b0408', '#300204', '#180407']}
-        style={styles.sizeGradiente}>
+    <LinearGradient
+      style={styles.gradient}
+      colors={[
+        '#1b0408',
+        '#300204',
+        '#0f0404f1',
+        '#0f0404f1',
+        '#0f0404f1',
+        '#0f0404f1',
+      ]}>
+      <ScrollView style={styles.scrollMain}>
         <Header>
           <TouchableOpacity activeOpacity={0.7} style={styles.iconMenu}>
             <Menu source={require('../../assets/icons/menu.png')} />
@@ -43,33 +83,47 @@ const Home: React.FC = () => {
             <NumberNotifications>2</NumberNotifications>
           </View>
         </Header>
-        <ContainerTopView>
-          <AlignTopView>
-            <Stars source={require('../../assets/icons/icon-stars.png')} />
-            <TextTopView>Top View</TextTopView>
-          </AlignTopView>
-          <Seeall>See all</Seeall>
-        </ContainerTopView>
+        <TitleSection
+          styleContainer={{paddingTop: 20, paddingBottom: 18}}
+          icon={Star}
+          styleIcon={{width: 18, height: 18}}
+          title="Top View"
+        />
         <ContainerSlider>
           <Banner
             source={require('../../assets/images/banner-home.png')}
             resizeMode="cover"
+            // style={{backgroundColor: '#fff'}}
           />
         </ContainerSlider>
-      </LinearGradient>
-      <LinearGradient
-        colors={['#180407', '#110305', '#110305']}
-        style={styles.sizeGradiente}
-      />
-    </Container>
+        <TitleSection
+          styleContainer={{paddingTop: 9, paddingBottom: 12}}
+          icon={Ticket}
+          styleIcon={{width: 19, height: 19}}
+          title="Top Categories"
+        />
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          overScrollMode="never"
+          horizontal
+          data={data}
+          keyExtractor={item => String(item)}
+          renderItem={({item}) => (
+            <CardGenres icon={item.icon} title={item.title} />
+          )}
+        />
+      </ScrollView>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
-  sizeGradiente: {
-    flex: 5,
+  gradient: {
+    flex: 1,
+  },
+  scrollMain: {
     paddingHorizontal: 30,
-    paddingVertical: 15,
+    paddingTop: 10,
   },
   iconMenu: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
