@@ -9,6 +9,8 @@ export const theme = {
   },
   fonts: {
     manrope: 'Manrope-Regular',
+    maronpeLight: 'Maronpe-Light',
+    manropeMedium: 'Manrope-Medium',
   },
   // adding sizes the fonts
 };
