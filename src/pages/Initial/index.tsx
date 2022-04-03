@@ -48,15 +48,15 @@ const Inital: React.FC = () => {
             <Text style={styles.textBtn}>Login</Text>
           </BtnLogin>
           <View style={styles.containerFooter}>
-            <Touched>
+            <Touched activeOpacity={0.6}>
               <Text style={styles.textFooter}>Privacy</Text>
             </Touched>
             <View style={styles.bar} />
-            <Touched>
+            <Touched activeOpacity={0.6}>
               <Text style={styles.textFooter}>Help</Text>
             </Touched>
             <View style={styles.bar} />
-            <Touched>
+            <Touched activeOpacity={0.6}>
               <Text style={styles.textFooter}>FAQs</Text>
             </Touched>
           </View>
