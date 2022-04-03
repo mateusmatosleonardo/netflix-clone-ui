@@ -1,6 +1,6 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {Image, View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {
   BtnLogin,
@@ -9,10 +9,12 @@ import {
   Content,
   Subtitle,
   Title,
+  Touched,
 } from './styles';
 import {theme} from '../../styles/theme';
+import TV from '../../assets/tv.png';
 
-const Login: React.FC = () => {
+const Inital: React.FC = () => {
   const navigation = useNavigation();
 
   return (
@@ -20,10 +22,7 @@ const Login: React.FC = () => {
       <LinearGradient
         colors={['#530407', '#880c12', '#3a1416']}
         style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
-        <Image
-          source={require('../../assets/tv.png')}
-          style={{width: 244, height: 199}}
-        />
+        <Image source={TV} style={{width: 244, height: 199}} />
       </LinearGradient>
       <LinearGradient
         colors={['#3a1416', '#130a0b', '#080303']}
@@ -49,11 +48,17 @@ const Login: React.FC = () => {
             <Text style={styles.textBtn}>Login</Text>
           </BtnLogin>
           <View style={styles.containerFooter}>
-            <Text style={styles.textFooter}>Privacy</Text>
+            <Touched activeOpacity={0.6}>
+              <Text style={styles.textFooter}>Privacy</Text>
+            </Touched>
             <View style={styles.bar} />
-            <Text style={styles.textFooter}>Help</Text>
+            <Touched activeOpacity={0.6}>
+              <Text style={styles.textFooter}>Help</Text>
+            </Touched>
             <View style={styles.bar} />
-            <Text style={styles.textFooter}>FAQs</Text>
+            <Touched activeOpacity={0.6}>
+              <Text style={styles.textFooter}>FAQs</Text>
+            </Touched>
           </View>
         </Content>
       </LinearGradient>
@@ -84,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Inital;

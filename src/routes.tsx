@@ -3,7 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, LogBox} from 'react-native';
-import Login from './pages/Login';
 import Home from './pages/Home/Home';
 
 import IconHome from './assets/icons/home.png';
@@ -11,6 +10,7 @@ import Search from './assets/icons/search.png';
 import Downloads from './assets/icons/downloads.png';
 import User from './assets/icons/user.png';
 import Linear from './pages/Linear';
+import Inital from './pages/Initial';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -115,15 +115,15 @@ function Tabs() {
 function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Initial">
         <Stack.Screen
           name="Tabs"
           component={Tabs}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Login"
-          component={Login}
+          name="Initial"
+          component={Inital}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
