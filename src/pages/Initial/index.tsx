@@ -38,13 +38,15 @@ const Inital: React.FC = () => {
               borderRadius: 23,
               elevation: 10,
             }}>
-            <BtnStarted activeOpacity={0.7}>
+            <BtnStarted
+              activeOpacity={0.7}
+              onPress={() => navigation.navigate('Tabs')}>
               <Text style={styles.textBtn}>Começar</Text>
             </BtnStarted>
           </LinearGradient>
           <BtnLogin
             activeOpacity={0.7}
-            onPress={() => navigation.navigate('Tabs')}>
+            onPress={() => navigation.navigate('Login')}>
             <Text style={styles.textBtn}>Login</Text>
           </BtnLogin>
           <View style={styles.containerFooter}>

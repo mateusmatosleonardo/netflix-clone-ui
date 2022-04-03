@@ -11,6 +11,7 @@ import Downloads from './assets/icons/downloads.png';
 import User from './assets/icons/user.png';
 import Linear from './pages/Linear';
 import Inital from './pages/Initial';
+import Login from './pages/Login';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -124,6 +125,11 @@ function Routes() {
         <Stack.Screen
           name="Initial"
           component={Inital}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
