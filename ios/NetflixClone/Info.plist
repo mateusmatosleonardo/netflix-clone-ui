@@ -54,6 +54,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Manrope-Regular.ttf</string>
+		<string>Manrope-Light.ttf</string>
+		<string>Manrope-Medium.ttf</string>
 	</array>
 </dict>
 </plist>

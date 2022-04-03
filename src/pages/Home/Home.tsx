@@ -3,7 +3,6 @@ import {
   FlatList,
   Image,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
   ScrollView,
@@ -22,9 +21,25 @@ import Star from '../../assets/icons/icon-stars.png';
 import Ticket from '../../assets/icons/ticket.png';
 import NewMovies from '../../assets/icons/icon-new-movies.png';
 import CardGenres from '../../components/CardGenres';
+import ContainerNewMovies from '../../components/ContainerNewMovies';
+
+import BannerMv from '../../assets/images/banner-movie.png';
+// import {api, api_key} from '../../services/api';
 
 const Home: React.FC = () => {
-  const data = [
+  // const [dataApi, setDataApi] = useState([]);
+
+  // useEffect(() => {
+  //   api
+  //     .get(`/movie/top_rated?api_key=${api_key}&language=pt-BR&page=6`)
+  //     .then(({data}) => {
+  //       setDataApi(data.results);
+  //       console.log(data.results);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, []);
+
+  const dados = [
     {
       icon: require('../../assets/iconsGenres/Action.png'),
       title: 'Action',
@@ -48,6 +63,27 @@ const Home: React.FC = () => {
     {
       icon: require('../../assets/iconsGenres/Sports.png'),
       title: 'Sports',
+    },
+  ];
+
+  const data = [
+    {
+      banner: BannerMv,
+      title: 'Fast & Furious 9',
+      type: 'Action',
+      evaluation: '8/10',
+    },
+    {
+      banner: BannerMv,
+      title: 'Fast & Furious 9',
+      type: 'Action',
+      evaluation: '8/10',
+    },
+    {
+      banner: BannerMv,
+      title: 'Fast & Furious 9',
+      type: 'Action',
+      evaluation: '8/10',
     },
   ];
 
@@ -106,17 +142,32 @@ const Home: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           overScrollMode="never"
           horizontal
-          data={data}
+          data={dados}
           keyExtractor={item => String(item)}
           renderItem={({item}) => (
             <CardGenres icon={item.icon} title={item.title} />
           )}
         />
         <TitleSection
-          styleContainer={{paddingTop: 15, paddingBottom: 10}}
+          styleContainer={{paddingTop: 18, paddingBottom: 15}}
           icon={NewMovies}
           styleIcon={{width: 19, height: 19}}
           title="New Movies"
+        />
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          overScrollMode="never"
+          horizontal
+          data={data}
+          keyExtractor={item => String(item)}
+          renderItem={({item}) => (
+            <ContainerNewMovies
+              banner={item.banner}
+              title={item.title}
+              type={item.type}
+              evaluation={item.evaluation}
+            />
+          )}
         />
       </ScrollView>
     </LinearGradient>
