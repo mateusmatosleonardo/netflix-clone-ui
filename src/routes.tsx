@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, LogBox} from 'react-native';
-import Login from './pages/Login';
+import Login from './pages/Initial';
 import Home from './pages/Home/Home';
 
 import IconHome from './assets/icons/home.png';

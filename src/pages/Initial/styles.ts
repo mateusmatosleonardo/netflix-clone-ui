@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components/native';
+import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
@@ -28,7 +28,6 @@ export const BtnStarted = styled.TouchableOpacity`
   width: 100%;
   height: 46px;
   border-radius: 23px;
-  /* background-color: #880c20; */
   justify-content: center;
   align-items: center;
 `;
@@ -42,3 +41,5 @@ export const BtnLogin = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
+
+export const Touched = styled.TouchableOpacity``;
